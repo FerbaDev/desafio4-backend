@@ -5,7 +5,7 @@ const PUERTO = 8080;
 const exphbs = require("express-handlebars");
 const socket = require("socket.io");
 const viewsRouter = require("./routes/views.router.js");
-const usuarios = require("./public/js/usuarios.js");
+const productos = require("./public/js/usuarios.js");
 
 //middleware
 app.use(express.static("./src/public"));
@@ -40,5 +40,5 @@ io.on("connection", (socket) => {
   socket.emit("saludo", "hola cliente, soy el servidor");
 
   //mandamos un array de usuario al cliente y luego vamos al main.js
-  socket.emit("usuarios", usuarios);
+  socket.emit("productos", productos);
 });

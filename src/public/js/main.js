@@ -15,11 +15,11 @@ socket.on("saludo", (data) => {
   console.log(data);
 });
 
-//recibimos el array de usuarios del server
-socket.on("usuarios", (data) => {
-  const listaUsuarios = document.getElementById("listaUsuarios");
-  listaUsuarios.innerHTML = "";
-  data.forEach((usuario) => {
-    listaUsuarios.innerHTML += `<li>${usuario.nombre} ${usuario.apellido} </li>`;
+//recibimos los productos del server
+socket.on("productos", (data) => {
+  const listaProductos = document.getElementById("listaProductos");
+  listaProductos.innerHTML = "";
+  data.forEach((producto) => {
+    listaProductos.innerHTML += `<li>${producto.nombre} ${producto.apellido} </li>`;
   });
 });

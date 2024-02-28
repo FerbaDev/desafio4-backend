@@ -1,4 +1,4 @@
-const usuarios = [
+const productos = [
   {
     id: 1,
     nombre: "María",
@@ -26,4 +26,4 @@ const usuarios = [
   },
 ];
 
-module.exports = usuarios;
+module.exports = productos;
