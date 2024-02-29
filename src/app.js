@@ -5,7 +5,6 @@ const PUERTO = 8080;
 const exphbs = require("express-handlebars");
 const socket = require("socket.io");
 
-
 //rutas
 const viewsRouter = require("./routes/views.router.js");
 const productsRouter = require("./routes/products.router.js");
@@ -14,7 +13,7 @@ const cartsRouter = require("./routes/carts.router.js");
 //middleware static
 app.use(express.static("./src/public"));
 //configuramos middleware para recibir datos en formato json
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //express handlebars
@@ -36,7 +35,7 @@ const httpServer = app.listen(PUERTO, () => {
 
 //requerimos los productos
 const ProductManager = require("./controllers/productManager.js");
-const productManager = new ProductManager("./src/models/productos.json")
+const productManager = new ProductManager("./src/models/productos.json");
 
 //generamos una instancia de la conexion, y le pasamos la ref del servidor
 const io = socket(httpServer);
@@ -46,29 +45,23 @@ io.on("connection", async (socket) => {
   //traigo el parametro socket
   console.log("un cliente se ha conectado");
 
-  //mandamos un array de usuario al cliente y luego vamos al main.js
+  //mandamos un array de productos al cliente y luego vamos al main.js
   socket.emit("productos", await productManager.getProducts());
 
   //escucho evento eliminar desde el cliente
   socket.on("deleteProducts", async (id) => {
-  console.log();
-  await productManager.deleteProduct(id); 
+    console.log();
+    await productManager.deleteProduct(id);
+  });
+
+  //le mando la lista actualizada al cliente
 });
-
- //le mando la lista actualizada al cliente
- 
-
-
-});
-
-
-
 
 // //escucho el evento "menasje" desde el cliente
 // socket.on("mensaje", (data) => {
 //   console.log(data);
 // });
 
-  // //ahora el servidor le va a mandar un mensaje al cliente
+// //ahora el servidor le va a mandar un mensaje al cliente
 
-  // socket.emit("saludo", "hola cliente, soy el servidor");
+// socket.emit("saludo", "hola cliente, soy el servidor");
