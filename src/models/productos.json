@@ -25,5 +25,14 @@
     "thumbnail": "foto de encendedor",
     "code": "abc125124",
     "stock": 100
+  },
+  {
+    "id": "d3c55352-a6c8-469d-81ac-91ca14670d49",
+    "title": "perro",
+    "description": "chiquito",
+    "price": 123456,
+    "thumbnail": "weewe",
+    "code": "abc123",
+    "stock": 3
   }
 ]

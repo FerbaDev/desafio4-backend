@@ -49,11 +49,19 @@ io.on("connection", async (socket) => {
   socket.on("deleteProduct", async (id) => {
     await productManager.deleteProduct(id);
     const products = await productManager.getProducts();
-    io.sockets.emit("products", products)
-    
+    io.sockets.emit("products", products);
+  });
+
+  //agregar producto
+  socket.on("addProduct", async (product) => {
+    try {
+      await productManager.addProduct(product);
+      const products = await productManager.getProducts();
+      io.sockets.emit("products", products);
+    } catch (error) {
+      console.log("Error al cargar producto");
+    }
   });
 
   //le mando la lista actualizada al cliente
 });
-
-

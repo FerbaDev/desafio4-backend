@@ -12,3 +12,10 @@ h1 {
   border: 2px solid black;
   padding: 20px;
 }
+
+form {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+}
