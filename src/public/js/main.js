@@ -20,6 +20,13 @@ socket.on("productos", (data) => {
   const listaProductos = document.getElementById("listaProductos");
   listaProductos.innerHTML = "";
   data.forEach((producto) => {
-    listaProductos.innerHTML += `<li>${producto.title} ${producto.description} </li>`;
+    listaProductos.innerHTML += `
+    <div class='productCard'>
+    <h3>Titulo : ${producto.title}</h3>
+    <p>Descripción : ${producto.description}</p>
+    <p>$${producto.price}</p>
+    <button>Eliminar</button>
+    </div>
+    `;
   });
 });
