@@ -2,8 +2,7 @@ console.log("conectado");
 //importamos socket
 const socket = io();
 
-//para enviar mensajes del cliente al servidor, utilizamos la palabra "emit", con el id
-//del evento y el contenido del mensaje
+
 
 //los ids de los eventos deben coincidir entre el cliente y el servidor
 
