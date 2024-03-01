@@ -55,11 +55,4 @@ io.on("connection", async (socket) => {
   //le mando la lista actualizada al cliente
 });
 
-// //escucho el evento "menasje" desde el cliente
-// socket.on("mensaje", (data) => {
-//   console.log(data);
-// });
 
-// //ahora el servidor le va a mandar un mensaje al cliente
-
-// socket.emit("saludo", "hola cliente, soy el servidor");

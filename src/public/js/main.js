@@ -2,17 +2,8 @@ console.log("conectado");
 //importamos socket
 const socket = io();
 
-
-
 //los ids de los eventos deben coincidir entre el cliente y el servidor
 
-socket.emit("mensaje", "hola mundo, soy el cliente");
-
-//recibimos el mensaje del servidor
-
-socket.on("saludo", (data) => {
-  console.log(data);
-});
 
 //recibimos los productos del server
 socket.on("productos", (data) => {
@@ -24,8 +15,25 @@ socket.on("productos", (data) => {
     <h3>Titulo : ${producto.title}</h3>
     <p>Descripción : ${producto.description}</p>
     <p>$${producto.price}</p>
-    <button>Eliminar</button>
+    <button class='deleteButton'>Eliminar</button>
     </div>
     `;
   });
+
+//configuramos eliminar
+const deleteButtons = document.querySelectorAll(".deleteButton");
+deleteButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    deleteProduct(data[index].id)
+  });
 });
+
+
+
+
+
+});
+
+const deleteProduct = (id) => {
+  socket.emit('deleteProduct', id);
+};
