@@ -1,29 +1,29 @@
 [
-    {
-      "id": "1",
-      "title": "termo",
-      "description": "stanley",
-      "price": 30999,
-      "thumbnail": "foto de termo",
-      "code": "abc1234",
-      "stock": 99
-    },
-    {
-      "id": "2",
-      "title": "celular",
-      "description": "motorola",
-      "price": 3500440,
-      "thumbnail": "foto de celular",
-      "code": "abc12544",
-      "stock": 100
-    },
-    {
-      "id": "3",
-      "title": "encendedor",
-      "description": "BIC",
-      "price": 3500440,
-      "thumbnail": "foto de encendedor",
-      "code": "abc125124",
-      "stock": 100
-    }
-  ]
+  {
+    "id": "1",
+    "title": "termo",
+    "description": "stanley",
+    "price": 30999,
+    "thumbnail": "foto de termo",
+    "code": "abc1234",
+    "stock": 99
+  },
+  {
+    "id": "2",
+    "title": "celular",
+    "description": "motorola",
+    "price": 3500440,
+    "thumbnail": "foto de celular",
+    "code": "abc12544",
+    "stock": 100
+  },
+  {
+    "id": "3",
+    "title": "encendedor",
+    "description": "BIC",
+    "price": 3500440,
+    "thumbnail": "foto de encendedor",
+    "code": "abc125124",
+    "stock": 100
+  }
+]

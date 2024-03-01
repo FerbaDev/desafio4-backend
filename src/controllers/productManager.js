@@ -100,7 +100,10 @@ class ProductManager {
 
       if (index !== -1) {
         //Puedo usar el método de array splice para reemplazar el objeto en la posicion del index:
-        arrayProductos[index] = {...arrayProductos[index], ...productoActualizado}
+        arrayProductos[index] = {
+          ...arrayProductos[index],
+          ...productoActualizado,
+        };
         await this.saveFile(arrayProductos);
         console.log("Producto actualizado");
       } else {
@@ -110,14 +113,21 @@ class ProductManager {
       console.log("Error al actualizar el producto", error);
     }
   }
-  async deleteProduct() {
-    let products = this.getProducts();
-    const index = arrayProductos.findIndex((item) => item.id === id);
-    if (index !== -1) {
-      products.splice(index, 1);
-      await this.saveFile(products);
-    } else {
-      console.log("Producto no encontrado para eliminar");
+
+  //eliminar producto
+  async deleteProduct(id) {
+    try {
+      const products = await this.readFile();
+      const index = products.findIndex((item) => item.id === id);
+      console.log(index);
+      if (index !== -1) {
+        products.splice(index, 1);
+        await this.saveFile(products);
+      } else {
+        console.log("Producto no encontrado para eliminar");
+      }
+    } catch (error) {
+      console.log("error");
     }
   }
 }

@@ -1,14 +1,14 @@
 h1 {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 4em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 4em;
 }
 
-#listaProductos {
-    display: flex;
-    gap: 2em;
+.lista-productos {
+  display: flex;
+  gap: 2em;
 }
 
-.productCard {
-    border: 2px solid black;
-    padding: 20px;
+.product-card {
+  border: 2px solid black;
+  padding: 20px;
 }

@@ -1,7 +1,12 @@
 <h1>Hola mundo</h1>
+<div class="lista-productos">
 
-{{#each products}}
-<h2> {{this.title}} </h2>
+  {{#each products}}
+    <div class="product-card">
+      <img src="{{this.thumbnail}}" alt="imagen de {{this.title}}" />
+      <h2> {{this.title}} </h2>
+      <p>{{this.description}}</p>
+    </div>
 
-
-{{/each}}
+  {{/each}}
+</div>
