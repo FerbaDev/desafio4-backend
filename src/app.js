@@ -40,16 +40,17 @@ const io = socket(httpServer);
 
 //configuramos socket io
 io.on("connection", async (socket) => {
-  //traigo el parametro socket
   console.log("un cliente se ha conectado");
-
+  const products = await productManager.getProducts();
   //mandamos un array de productos al cliente y luego vamos al main.js
-  socket.emit("productos", await productManager.getProducts());
+  socket.emit("productos", products);
 
   //escucho evento eliminar desde el cliente
-  socket.on("deleteProducts", async (id) => {
-    console.log();
+  socket.on("deleteProduct", async (id) => {
     await productManager.deleteProduct(id);
+    const products = await productManager.getProducts();
+    io.sockets.emit("products", products)
+    
   });
 
   //le mando la lista actualizada al cliente
