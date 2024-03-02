@@ -7,7 +7,8 @@ const productManager = new ProductManager("./src/models/productos.json");
 router.get("/", async (req, res) => {
   try {
     const products = await productManager.getProducts();
-    res.render("home", {products} );
+    let isProducts = products.length > 0;
+    res.render("home", {products, title: "Home", isProducts} );
   } catch (error) {
     console.log("Error al recuperar productos", error);
     res.status(500).json({error: "Error interno del servidor"})
@@ -17,7 +18,7 @@ router.get("/", async (req, res) => {
 
 router.get("/realTimeProducts", async (req, res) => {
   try {
-    res.render("realTimeProducts");
+    res.render("realTimeProducts", {title: "Productos en tiempo real"});
   } catch (error) {
     res.status(500).json({ error: error });
   }
